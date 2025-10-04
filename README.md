@@ -1,151 +1,190 @@
 
-# SHOPIFY Customer & Sales Analytics
+# 🛍️ SHOPIFY Customer & Sales Analytics  
 
-![MIT License](https://img.shields.io/badge/license-MIT-blue.svg) ![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow) ![Python](https://img.shields.io/badge/Python-Data--Science-green) ![CSV](https://img.shields.io/badge/CSV-Data--Prep-lightgrey)
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg) 
+![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow) 
+![Python](https://img.shields.io/badge/Python-Data--Science-green) 
+![CSV](https://img.shields.io/badge/CSV-Data--Prep-lightgrey) 
+![Status](https://img.shields.io/badge/Project-Active-brightgreen)  
 
-> An ETL-ready analytics repo and interactive Power BI / notebook starter kit for Shopify order and customer analysis — reusable schemas, example transforms, and dashboard-ready outputs.
-
----
-
-### Demo Site
-
-**Live preview:** https://faizankhan71.github.io/
+> **An ETL-ready analytics repository and interactive Power BI / Python starter kit for Shopify order and customer analysis — reusable schemas, example transforms, and dashboard-ready outputs.**
 
 ---
 
-## 📸 Preview
+## 🚀 Live Demo  
 
-(Place your dashboard screenshots or GIFs in /docs/assets and reference them here.)
-
-<img width="900" alt="dashboard-preview" src="docs/assets/dashboard-preview.png" />
+🔗 **[View on GitHub Pages](https://faizankhan71.github.io/)**  
 
 ---
 
-## 🏗️ Project Architecture
+## 📸 Dashboard Preview  
 
-This project standardizes Shopify exports into an analysis-ready pipeline and dashboard:
+<p align="center">
+  <img width="857" alt="Shopify Dashboard 1" src="https://github.com/user-attachments/assets/f9ccb8a7-a20b-4490-8457-34248ba1e961" style="margin-bottom:20px;" />
+</p>
 
-- 🔄 Data ingestion: raw Shopify CSV/GraphQL exports or connector dumps.  
-- 🧹 Data cleaning (Python / Excel): normalize names, addresses, currencies, and variants.  
-- 🗃️ Data modeling: canonical tables for orders, customers, products, and order_lines.  
-- 📊 Visualization: Power BI report (.pbix) and Jupyter notebooks for exploration.
+<p align="center">
+  <img width="856" alt="Shopify Dashboard 2" src="https://github.com/user-attachments/assets/63cea104-12d9-44b5-a828-b8777c6e34f7" style="margin-bottom:20px;" />
+</p>
 
----
-
-## ✨ Key Features
-
-- **Canonical data dictionary** for consistent joins across orders, customers, and products.  
-- **ETL templates** in Python (pandas) for cleaning, currency standardization, and variant joins.  
-- **Example SQL** for common analytics: LTV, repeat purchase rate, sales by region, tax reporting.  
-- **Power BI template** for quick dashboarding with interactive filters and drill-throughs.  
-- **Export-ready outputs** (CSV / Parquet) for downstream reporting and sharing.
+<p align="center">
+  <img width="861" alt="Shopify Dashboard 3" src="https://github.com/user-attachments/assets/1825e978-ee8b-46df-b968-52df1b1d4d8a" />
+</p>
 
 ---
 
-## 📂 Dataset & Canonical Fields
+## 🏗️ Project Architecture  
 
-Provide your Shopify raw export (CSV/JSON) and the repo will normalize to these canonical column names.
+This project standardizes Shopify exports into an **analysis-ready pipeline** and dashboard:  
+
+- 🔄 **Data Ingestion**: Raw Shopify CSV/GraphQL exports or connector dumps  
+- 🧹 **Data Cleaning (Python / Excel)**: Normalize names, addresses, currencies, and variants  
+- 🗃️ **Data Modeling**: Canonical tables for orders, customers, products, and order_lines  
+- 📊 **Visualization**: Power BI report (.pbix) and Jupyter notebooks for exploration  
+
+---
+
+## ✨ Key Features  
+
+✅ Canonical **data dictionary** for consistent joins across orders, customers, and products  
+✅ **ETL templates** in Python (pandas) for cleaning, currency standardization, and variant joins  
+✅ **SQL examples** for LTV, repeat purchase rate, sales by region, and tax reporting  
+✅ **Power BI template** with interactive filters and drill-throughs  
+✅ **Export-ready outputs** (CSV / Parquet) for downstream reporting and sharing  
+
+---
+
+## 📂 Dataset & Canonical Fields  
+
+<details>
+<summary>📖 Expand Data Dictionary</summary>
 
 | Field | Description |
 |---|---|
-| **admin_graphql_api_id** | Globally unique GraphQL identifier for precise record queries. |
-| **order_number** | Human-facing order code (e.g., #12345). |
-| **billing_city** | City from billing address for tax and fraud checks. |
-| **billing_country** | Country from billing address for tax rules and region reporting. |
-| **billing_first_name** | First name on billing address for invoicing. |
-| **billing_last_name** | Last name on billing address for invoicing. |
-| **billing_province** | State/province used for tax calculations. |
-| **billing_zip** | Postal / ZIP code for shipping and validation. |
-| **shipping_city** | Shipping city (if different from billing). |
-| **currency** | Transaction currency in ISO format (USD, INR, EUR). |
-| **customer_id** | Internal unique ID linking orders to customers. |
-| **invoice_date** | Invoice or order created date (ISO format). |
-| **gateway** | Payment processor (Stripe, PayPal, Razorpay, etc.). |
-| **product_id** | Internal product identifier. |
-| **product_type** | Product category for filtering (Clothing, Electronics). |
-| **variant_id** | Specific SKU/variant identifier. |
-| **quantity** | Units of the item sold in that order line. |
-| **subtotal_price** | Order subtotal before taxes, shipping, and discounts. |
-| **total_price_usd** | Order total converted to USD for standardized reporting. |
-| **total_tax** | Total tax amount applied to the order. |
+| **admin_graphql_api_id** | Globally unique GraphQL identifier for precise record queries |
+| **order_number** | Human-facing order code (e.g., #12345) |
+| **billing_city** | City from billing address for tax and fraud checks |
+| **billing_country** | Country from billing address for tax rules and reporting |
+| **billing_first_name** | First name on billing address |
+| **billing_last_name** | Last name on billing address |
+| **billing_province** | State/province used for tax calculations |
+| **billing_zip** | Postal / ZIP code for shipping and validation |
+| **shipping_city** | Shipping city (if different from billing) |
+| **currency** | Transaction currency in ISO format (USD, INR, EUR) |
+| **customer_id** | Unique ID linking orders to customers |
+| **invoice_date** | Invoice or order created date |
+| **gateway** | Payment processor (Stripe, PayPal, Razorpay, etc.) |
+| **product_id** | Internal product identifier |
+| **product_type** | Product category (Clothing, Electronics, etc.) |
+| **variant_id** | Specific SKU/variant identifier |
+| **quantity** | Units of the item sold |
+| **subtotal_price** | Order subtotal before taxes, shipping, and discounts |
+| **total_price_usd** | Order total converted to USD |
+| **total_tax** | Total tax amount applied to the order |
+
+</details>
 
 ---
 
-## ⚙️ Installation & Quick Start
+## ⚙️ Installation & Quick Start  
 
-1. Clone the repository  
-   git clone https://github.com/Faizan-26079/shopify-sales-analytics.git
+```bash
+# 1. Clone the repository
+git clone https://github.com/Faizan-26079/shopify-sales-analytics.git
 
-2. Prepare raw data  
-   Place Shopify CSV export(s) into /data/raw (orders.csv, order_lines.csv, products.csv).
+# 2. Prepare raw data
+# Place Shopify CSV export(s) into /data/raw (orders.csv, order_lines.csv, products.csv)
 
-3. Create virtual environment and install dependencies  
-   pip install -r requirements.txt
+# 3. Create virtual environment and install dependencies
+pip install -r requirements.txt
 
-4. Run ETL cleaning script  
-   python scripts/etl_normalize_shopify.py --input data/raw --output data/clean
+# 4. Run ETL cleaning script
+python scripts/etl_normalize_shopify.py --input data/raw --output data/clean
 
-5. Open notebooks or Power BI  
-   - Jupyter: open notebooks/exploration.ipynb  
-   - Power BI: open powerbi/Shopify_Sales.pbix and point to /data/clean CSVs
+# 5. Open notebooks or Power BI
+# - Jupyter: notebooks/exploration.ipynb
+# - Power BI: powerbi/Shopify_Sales.pbix (point to /data/clean CSVs)
+```
 
 ---
 
-## 🧩 Example Usage Snippets
+## 🧩 Example Usage  
 
-- Normalize addresses and currencies (Python):  
+- **Normalize addresses & currencies (Python):**  
+  ```bash
   python scripts/etl_normalize_shopify.py --input data/raw --output data/clean
+  ```
 
-- Aggregate sales by country (SQL example in /sql/sales_by_country.sql):  
-  SELECT billing_country, SUM(total_price_usd) AS revenue_usd FROM order_table GROUP BY billing_country;
+- **Aggregate sales by country (SQL):**  
+  ```sql
+  SELECT billing_country, SUM(total_price_usd) AS revenue_usd
+  FROM order_table
+  GROUP BY billing_country;
+  ```
 
-- Create cohort analysis (notebook):  
-  Open notebooks/cohort_analysis.ipynb and run all cells.
-
----
-
-## 🗂️ Repository Layout
-
-- **/data** — raw/clean sample exports (CSV, Parquet).  
-- **/notebooks** — Jupyter notebooks for EDA, cohort analysis, and modeling.  
-- **/sql** — reusable SQL queries and examples.  
-- **/powerbi** — .pbix Power BI template and usage notes.  
-- **/scripts** — Python ETL scripts and helpers.  
-- **/docs** — README assets, GIFs, and schema docs.  
-- **/tests** — basic data-quality checks and sample test cases.
+- **Cohort analysis (Notebook):**  
+  Open `notebooks/cohort_analysis.ipynb` and run all cells.  
 
 ---
 
-## ✅ Recommended Inputs From You
+## 🗂️ Repository Layout  
 
-To produce a final README and populate repo assets in the same polished style as your BMW example, provide the following:
-
-- Repository name (exact) and one-line tagline.  
-- Demo/GitHub Pages URL (you already gave: https://faizankhan71.github.io/).  
-- 3–6 short feature bullets you want highlighted (optional tweaks to the default list).  
-- A complete data dictionary CSV (FieldName, CanonicalName, Type, Description, ExampleValue) if you want full table included.  
-- Sample raw files to include in /data (names and formats; a ~100–500 row sample is ideal).  
-- Power BI .pbix filename to reference and any screenshots you want shown (place in /docs/assets).  
-- requirements.txt or list of Python packages with versions.  
-- Author contact details to display (name, email, portfolio link, phone optional).  
-- Preferred license (MIT, Apache-2.0, etc.).  
-- Any badges you specifically want added (build, coverage, python version).
-
-You can paste small CSVs or the data dictionary directly in chat, or attach files to the repo. I will generate a polished README.md and small assets list for /docs/assets in the next message.
+```
+/data        → raw/clean sample exports (CSV, Parquet)
+/notebooks   → Jupyter notebooks for EDA, cohort analysis, modeling
+/sql         → Reusable SQL queries and examples
+/powerbi     → Power BI template (.pbix)
+/scripts     → Python ETL scripts and helpers
+/docs        → README assets, GIFs, schema docs
+/tests       → Data-quality checks and test cases
+```
 
 ---
 
-## 📄 License
+## 🛣️ Roadmap  
 
-Licensed under **MIT** by default unless you specify otherwise.
+- 🔮 Predictive analytics for sales forecasting  
+- 📦 Customer segmentation & RFM analysis  
+- ☁️ Cloud integration with Azure Data Factory / AWS Redshift  
+- 📈 Automated KPI dashboards with scheduled refresh  
 
 ---
 
-## 👨‍💻 Author
+## 🤝 Contributing  
+
+Contributions are welcome!  
+
+1. Fork the repo  
+2. Create a feature branch (`git checkout -b feature-name`)  
+3. Commit changes (`git commit -m "Add feature"`)  
+4. Push branch (`git push origin feature-name`)  
+5. Open a Pull Request  
+
+---
+
+## 📄 License  
+
+Licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.  
+
+---
+
+## 👨‍💻 Author  
 
 **Faizan** — Data Analytics & Power BI Professional  
-📬 fk9822647@gmail.com  
-💼 https://github.com/Faizan-26079  
-🌐 https://faizankhan71.github.io/  
+📬 [Email](mailto:faizankhanofficial71@gmail.com)  
+💼 [GitHub](https://github.com/Faizan-26079)  
+🌐 [Portfolio](https://faizankhan71.github.io/)  
 
 ---
+
+## 🙌 Acknowledgements  
+
+- Shopify API & Export Documentation  
+- Power BI Community for dashboarding best practices  
+- Python open-source libraries: pandas, numpy, matplotlib, seaborn  
+
+---
+
+✨ With this README, your repo will look **professional, modern, and portfolio-ready**. It mirrors the design of your BMW project but tailored for Shopify.  
+
+Would you like me to also create a **matching `index.html` landing page** (like your BMW one) so your GitHub Pages site looks polished and interactive?
