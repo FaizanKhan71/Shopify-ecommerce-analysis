@@ -7,104 +7,127 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg1:#0f2027; --bg2:#203a43; --bg3:#2c5364;
+      --text:#f5f7fa; --muted:#c9d7e1; --accent:#00c6ff; --accent2:#ffdd57;
+      --card:rgba(255,255,255,0.05);
+      --shadow:0 4px 12px rgba(0,0,0,0.3);
+    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #f5f7fa;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      color: var(--text);
       margin: 0;
-      padding: 0;
       line-height: 1.6;
     }
+    a { color: var(--accent); text-decoration: none; transition: color .2s ease; }
+    a:hover { color: var(--accent2); }
+    .container { max-width: 1080px; margin: 0 auto; padding: 24px; }
+
+    /* Header */
     header {
-      text-align: center;
-      padding: 40px 20px 20px;
+      display: flex; align-items: center; gap: 16px;
+      padding: 36px 24px 12px; justify-content: center; flex-wrap: wrap;
     }
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .logo-wrap {
+      width: 56px; height: 56px; border-radius: 12px; background: var(--card);
+      display: grid; place-items: center; box-shadow: var(--shadow);
+    }
+    .logo-wrap img {
+      width: 40px; height: 40px; object-fit: contain; border-radius: 8px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+    }
+    .title {
+      text-align: left;
+    }
+    .title h1 {
+      font-size: 1.8rem; margin: 0;
+    }
+    .subtitle {
+      margin-top: 6px; color: var(--muted); font-size: .95rem;
+    }
+
+    /* Badges in one line */
+    .badges {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
     }
     .badges img {
-      height: 24px;
-      margin: 0 6px;
-      vertical-align: middle;
-      transition: transform 0.3s ease;
+      height: 24px; vertical-align: middle; transition: transform .2s ease;
     }
-    .badges img:hover {
-      transform: scale(1.1);
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
+    .badges img:hover { transform: translateY(-1px) scale(1.05); }
+
+    /* Cards and sections */
     section {
-      background: rgba(255,255,255,0.05);
+      background: var(--card);
       padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      animation: fadeIn 1s ease forwards;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+      animation: fadeIn .8s ease forwards;
       opacity: 0;
     }
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.4s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    h2 {
-      margin-top: 0;
-      color: #00c6ff;
-    }
+    section:nth-of-type(1){ animation-delay: .15s; }
+    section:nth-of-type(2){ animation-delay: .3s; }
+    section:nth-of-type(3){ animation-delay: .45s; }
+    section:nth-of-type(4){ animation-delay: .6s; }
+    @keyframes fadeIn { from{ opacity:0; transform: translateY(16px); } to{ opacity:1; transform:none; } }
+
+    h2 { margin: 0 0 12px; color: var(--accent); font-size: 1.25rem; }
     .screenshots {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 20px;
-      margin-top: 20px;
     }
     .screenshots img {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-      transition: transform 0.4s ease;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+      transition: transform .35s ease, box-shadow .35s ease;
     }
     .screenshots img:hover {
-      transform: scale(1.02);
+      transform: scale(1.015);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.4);
     }
+
+    .grid {
+      display: grid; gap: 18px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
     footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-    a {
-      color: #00c6ff;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #ffdd57;
+      text-align: center; color: var(--muted);
+      padding: 18px 24px 28px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🛍️ Shopify Customer & Sales Analytics</h1>
-    <div class="badges">
-      <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" />
-      <img src="https://img.shields.io/badge/PowerBI-Dashboard-yellow" alt="PowerBI" />
-      <img src="https://img.shields.io/badge/Python-Data--Science-green" alt="Python" />
-      <img src="https://img.shields.io/badge/CSV-Data--Prep-lightgrey" alt="CSV" />
-      <img src="https://img.shields.io/badge/Project-Active-brightgreen" alt="Status" />
+    <div class="logo-wrap">
+      <img
+        src="https://raw.githubusercontent.com/FaizanKhan71/Shopify_Dynamic_E_Commerce_KPI_Dashboard/main/shopify%20logo.png"
+        alt="Shopify logo"
+      />
     </div>
-    <p><em>An ETL-ready analytics repo and interactive Power BI / Python starter kit for Shopify order and customer analysis.</em></p>
+    <div class="title">
+      <h1>🛍️ Shopify Customer & Sales Analytics</h1>
+      <div class="badges">
+        <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" />
+        <img src="https://img.shields.io/badge/PowerBI-Dashboard-yellow" alt="PowerBI" />
+        <img src="https://img.shields.io/badge/Python-Data--Science-green" alt="Python" />
+        <img src="https://img.shields.io/badge/CSV-Data--Prep-lightgrey" alt="CSV" />
+        <img src="https://img.shields.io/badge/Project-Active-brightgreen" alt="Status" />
+      </div>
+      <p class="subtitle">An ETL-ready analytics repo and interactive Power BI / Python starter kit for Shopify order and customer analysis.</p>
+    </div>
   </header>
 
   <div class="container">
 
     <section>
-      <h2>📸 Dashboard Preview</h2>
+      <h2>📸 Dashboard preview</h2>
       <div class="screenshots">
         <img src="https://github.com/user-attachments/assets/f9ccb8a7-a20b-4490-8457-34248ba1e961" alt="Dashboard Screenshot 1" />
         <img src="https://github.com/user-attachments/assets/63cea104-12d9-44b5-a828-b8777c6e34f7" alt="Dashboard Screenshot 2" />
@@ -112,20 +135,21 @@
       </div>
     </section>
 
-    <section>
-      <h2>🚀 Live Demo</h2>
-      <p>Check out the project live on GitHub Pages:</p>
-      <p><a href="https://faizankhan71.github.io/" target="_blank">🔗 https://faizankhan71.github.io/</a></p>
-    </section>
-
-    <section>
-      <h2>👨‍💻 Author</h2>
-      <p><strong>Faizan</strong> — Data Analytics & Power BI Professional</p>
-      <p>
-        📬 <a href="mailto:faizankhanofficial71@gmail.com">Email</a> ·
-        💼 <a href="https://github.com/Faizan-26079" target="_blank">GitHub</a> ·
-        🌐 <a href="https://faizankhan71.github.io/" target="_blank">Portfolio</a>
-      </p>
+    <section class="grid">
+      <div>
+        <h2>🚀 Live demo</h2>
+        <p>View the project on GitHub Pages:</p>
+        <p><a href="https://faizankhan71.github.io/" target="_blank" rel="noopener">🔗 https://faizankhan71.github.io/</a></p>
+      </div>
+      <div>
+        <h2>👨‍💻 Author</h2>
+        <p><strong>Faizan</strong> — Data Analytics & Power BI Professional</p>
+        <p>
+          📬 <a href="mailto:faizankhanofficial71@gmail.com">Email</a> ·
+          💼 <a href="https://github.com/Faizan-26079" target="_blank" rel="noopener">GitHub</a> ·
+          🌐 <a href="https://faizankhan71.github.io/" target="_blank" rel="noopener">Portfolio</a>
+        </p>
+      </div>
     </section>
 
   </div>
